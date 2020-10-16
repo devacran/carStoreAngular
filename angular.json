@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "carStore"
+    }
+  },
+  "defaultProject": "carStore",
+  "cli": {
+    "analytics": "1b21d56c-ccfb-494e-87a9-9967da7e44f3"
+  }
 }
