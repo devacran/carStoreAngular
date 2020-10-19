@@ -1,0 +1,7 @@
+<div class="model-card">
+  <img
+    [src]="'https://www.toyota.mx/sites/default/files/vehiculos/' + data.imgSrc"
+  />
+  {{ data.name }} Desde {{ data.price }} MXN
+  <a mat-raised-button [routerLink]="'/order/' + data.id">Cotiza Ahora</a>
+</div>

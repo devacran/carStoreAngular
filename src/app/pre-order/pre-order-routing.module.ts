@@ -1,17 +1,17 @@
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
-import { OrderComponent } from "./order/order.component";
+import { PreOrderComponent } from "./pre-order/pre-order.component";
 
 const routes: Routes = [
   {
     path: "",
-    component: OrderComponent
-  },
-  { path: ":id", component: OrderComponent }
+    pathMatch: "full",
+    component: PreOrderComponent
+  }
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class OrderRoutingModule {}
+export class PreOrderRoutingModule {}

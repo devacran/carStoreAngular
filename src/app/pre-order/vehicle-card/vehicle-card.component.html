@@ -1,0 +1,12 @@
+<div class="vehicle-card">
+  <div class="vehicle-card__img">
+    <img
+      [src]="
+        'https://www.toyota.mx/sites/default/files/vehiculos/' + data.imgSrc
+      "
+    />
+  </div>
+  {{ data.name }} Desde ${{ data.price }} M.N. Transmisión manual. 5
+  velocidades. Tracción en llantas delanteras.
+  <a mat-raised-button>Comprar Ahora</a>
+</div>
