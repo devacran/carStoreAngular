@@ -1,32 +1,6 @@
-Yaris Sedán Selecciona la versión y tipo de transmisión que quieres configurar
-Transmisión: Manual Automatica Todas Los params son
+<h1>Yaris Sedán</h1>
+<h2>Selecciona la versión y tipo de transmisión que quieres configurar</h2>
+
 <div class="vehicle-models">
-  <app-vehicle-card
-    [data]="{
-      imgSrc: 'Corolla20_262x95_01.png',
-      name: 'Corolla 2020',
-      price: '25000'
-    }"
-  ></app-vehicle-card>
-  <app-vehicle-card
-    [data]="{
-      imgSrc: 'Corolla20_262x95_01.png',
-      name: 'Corolla 2020',
-      price: '25000'
-    }"
-  ></app-vehicle-card>
-  <app-vehicle-card
-    [data]="{
-      imgSrc: 'Corolla20_262x95_01.png',
-      name: 'Corolla 2020',
-      price: '25000'
-    }"
-  ></app-vehicle-card>
-  <app-vehicle-card
-    [data]="{
-      imgSrc: 'Corolla20_262x95_01.png',
-      name: 'Corolla 2020',
-      price: '25000'
-    }"
-  ></app-vehicle-card>
+  <app-vehicle-card *ngFor="let item of data" [data]="item"></app-vehicle-card>
 </div>

@@ -1,12 +1,44 @@
-.container-one
+.grid
+  height: 6vw
   display: grid;
   grid-template-columns: repeat(3, 1fr)
-  h1
-    font-size: 28px;
+  background-color: lightgray;
+  grid-gap: 1px;
+  padding: 1px
   div
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    cursor: pointer;
+    transition: 0.2s
+    &:hover
+      transform: scale(1.3);
+
+.choose-color
+  margin-top: 60px;
+  font-size: 24px;
+  &__wrap
+    display: grid;
+    place-items: center;
+.colors
+  ul
+    display: flex;
+    height: 100%
+    list-style: none;
+  li
+    width: 25px
+    height: 25px
+    border: 1px solid black
+    margin: 2px
+  & li:nth-child(1)
+    background-color: red
+  & li:nth-child(2)
+    background-color: gray
+  & li:nth-child(3)
+    background-color: blue
+
+.vehicle-img
+  img
     width: 100%;
-    img
-      width: 100%;
-      height: 100%;
-.grid
-  grid-template-columns: repeat(3, 1fr)
+    height: 100%;

@@ -5,7 +5,10 @@ import { PreOrderComponent } from "./pre-order/pre-order.component";
 const routes: Routes = [
   {
     path: "",
-    pathMatch: "full",
+    component: PreOrderComponent
+  },
+  {
+    path: ":name",
     component: PreOrderComponent
   }
 ];

@@ -1,4 +1,4 @@
-<div class="vehicle-card">
+<!-- <div class="vehicle-card">
   <div class="vehicle-card__img">
     <img
       [src]="
@@ -6,7 +6,38 @@
       "
     />
   </div>
-  {{ data.name }} Desde ${{ data.price }} M.N. Transmisión manual. 5
-  velocidades. Tracción en llantas delanteras.
-  <a mat-raised-button>Comprar Ahora</a>
-</div>
+  <div class="vehicle-card__title">
+    {{ data.name }} <span>{{ data.model }} </span>
+  </div>
+  <div class="vehicle-card__price">
+    Desde <span>${{ data.price }} M.N.</span>
+  </div>
+  <div class="vehicle-card__description">
+    Transmisión manual. 5 velocidades. Tracción en llantas delanteras.
+    {{ data.description }}
+  </div>
+  <a mat-raised-button [routerLink]="'/order/' + data.id">Comprar Ahora</a>
+</div> -->
+
+<mat-card class="vehicle-card">
+  <img
+    mat-card-image
+    [src]="'https://www.toyota.mx/sites/default/files/vehiculos/' + data.imgSrc"
+    alt="Photo"
+  />
+  <mat-card-content>
+    <div class="vehicle-card__title">
+      {{ data.name }} <span>{{ data.model }} </span>
+    </div>
+    <div class="vehicle-card__price">
+      Desde <span>${{ data.price }} M.N.</span>
+    </div>
+    <div class="vehicle-card__description">
+      Transmisión manual. 5 velocidades. Tracción en llantas delanteras.
+      {{ data.description }}
+    </div>
+  </mat-card-content>
+  <mat-card-actions>
+    <a mat-raised-button [routerLink]="'/order/' + data.id">Comprar Ahora</a>
+  </mat-card-actions>
+</mat-card>
