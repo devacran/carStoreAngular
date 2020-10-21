@@ -1,6 +1,12 @@
-<h1>Yaris Sedán</h1>
-<h2>Selecciona la versión y tipo de transmisión que quieres configurar</h2>
+<a class="back-link" [routerLink]="'/'">← Configura otro auto</a>
+<div class="pre-order-header">
+  <h1>{{ data[0].name }}</h1>
+  <h2>Selecciona la versión que quieres configurar</h2>
 
-<div class="vehicle-models">
-  <app-vehicle-card *ngFor="let item of data" [data]="item"></app-vehicle-card>
+  <div class="vehicle-models">
+    <app-vehicle-card
+      *ngFor="let item of data"
+      [data]="item"
+    ></app-vehicle-card>
+  </div>
 </div>

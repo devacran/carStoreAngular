@@ -1,7 +1,16 @@
 <div class="model-card">
-  <img
-    [src]="'https://www.toyota.mx/sites/default/files/vehiculos/' + data.imgSrc"
-  />
-  {{ data.name }} Desde {{ data.price }} MXN
-  <a mat-raised-button [routerLink]="'/preorder/' + data.name">Cotiza Ahora</a>
+  <div class="model-card__img">
+    <img
+      [src]="
+        'https://www.toyota.mx/sites/default/files/vehiculos/' + data.imgSrc
+      "
+    />
+  </div>
+  <div>{{ data.name }}</div>
+  <div class="model-card__price">
+    Desde <span>{{ data.price | currency: "USD" }}</span>
+  </div>
+  <div class="model-card__action">
+    <a [routerLink]="'/preorder/' + data.name">Cotiza Ahora</a>
+  </div>
 </div>

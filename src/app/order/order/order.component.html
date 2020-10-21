@@ -1,38 +1,69 @@
 <div class="container-wrap">
-  <a [routerLink]="'/preorder/' + data.name">← Configura otro auto</a>
-  <app-order-header></app-order-header>
-  <div class="container-two">
-    <mat-button-toggle-group
-      class="grid"
-      appearance="legacy"
-      name="fontStyle"
-      aria-label="Font Style"
-    >
-      <mat-button-toggle value="bold">Exterior</mat-button-toggle>
-      <mat-button-toggle value="italic">Interior</mat-button-toggle>
-      <mat-button-toggle value="underline">Resumen</mat-button-toggle>
-    </mat-button-toggle-group>
-    <div class="choose-color">
-      <div class="choose-color__wrap">
-        <div>
-          Elige el color de Yaris Sedán que combine con tu personalidad
+  <a class="back-link" [routerLink]="'/preorder/' + data.name"
+    >← Configura otro auto</a
+  >
+  <app-order-header [handleClick]="openDialog" [data]="data"></app-order-header>
+  <mat-button-toggle-group
+    class="view-selector"
+    appearance="legacy"
+    name="fontStyle"
+    aria-label="Font Style"
+    value="exterior"
+    (change)="toggleView($event)"
+  >
+    <mat-button-toggle value="exterior">Exterior</mat-button-toggle>
+    <mat-button-toggle value="interior">Interior</mat-button-toggle>
+    <mat-button-toggle value="resumen">Resumen</mat-button-toggle>
+  </mat-button-toggle-group>
+  <div class="view-container">
+    <div *ngIf="selectedView === 'exterior'" class="view-exterior">
+      <div class="choose-color">
+        <div class="choose-color__wrap">
+          <div>
+            Elige el color de {{ data.name }} que combine con tu personalidad
+          </div>
+          <mat-button-toggle-group
+            class="colors"
+            [value]="selectedColor"
+            (change)="toggleVehicleColor($event)"
+          >
+            <mat-button-toggle class="button" value="black"
+              >Black</mat-button-toggle
+            >
+            <mat-button-toggle value="blue">Azul</mat-button-toggle>
+            <mat-button-toggle value="silver">Plata</mat-button-toggle>
+            <mat-button-toggle value="red">Rojo</mat-button-toggle>
+          </mat-button-toggle-group>
         </div>
-        <mat-button-toggle-group
-          class="colors"
-          name="fontStyle"
-          aria-label="Font Style"
-        >
-          <mat-button-toggle value="bold">Rojo</mat-button-toggle>
-          <mat-button-toggle value="italic">Azul</mat-button-toggle>
-          <mat-button-toggle value="underline">Plata</mat-button-toggle>
-        </mat-button-toggle-group>
+      </div>
+      <div class="vehicle-img">
+        <img
+          [src]="'https://www.toyota.mx/sites/default/files/' + carImg"
+          alt="vehicle"
+        />
       </div>
     </div>
-    <div class="vehicle-img">
+    <div *ngIf="selectedView === 'interior'" class="view-interior">
       <img
-        src="https://www.toyota.mx/sites/default/files/YS_CVT_GrisMetalico_03_0.png"
-        alt="vehicle"
+        src="https://www.toyota.mx/sites/default/files/interior/YarisSedan_TelaGris2.jpg"
+        alt=""
       />
+    </div>
+    <div *ngIf="selectedView === 'resumen'" class="view-resumen">
+      <div>
+        Resumen
+      </div>
+      <app-order-header [resume]="true" [data]="data"> </app-order-header>
+      <div class="checkout">
+        <div>
+          Con la cotización obtienes la información más completa, también podrás
+          acceder a beneficios para comprar tu Toyota Recuerda que aquí puedes
+          <a>FINANCIAR</a>
+        </div>
+        <div class="checkout__button">
+          <a mat-raised-button (click)="openDialog()">Comprar</a>
+        </div>
+      </div>
     </div>
   </div>
 </div>

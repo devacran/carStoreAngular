@@ -1,7 +1,7 @@
 <h1 mat-dialog-title>Solicita una cotizacon</h1>
-<div class="container-one">
+<div>
   <div>
-    <h1>Toyota <span>Spark</span></h1>
+    <h2>{{ data.name }} <span>Spark</span></h2>
     MT 1.5 L, 4 cilindros, 16 válvulas. Transmisión manual de 5 velocidades.
     <div class="">
       Este modelo es un prototipo. El modelo de producción puede variar.
@@ -10,7 +10,7 @@
   <div>
     <div class="vehicle-img">
       <img
-        src="https://www.toyota.mx/sites/default/files/YS_CVT_GrisMetalico_03_0.png"
+        [src]="'https://www.toyota.mx/sites/default/files/' + data.imgSrc"
         alt="vehicle"
       />
     </div>
@@ -18,21 +18,19 @@
   <div class="total-price">
     Precio Total
     <div>$235,300 M.N.</div>
-    <a mat-raised-button>Comprar</a>
-    <a mat-raised-button>Ver Detalle</a>
+    <a>Ver Detalle</a>
   </div>
 </div>
 <div mat-dialog-content>
-  <p>What's your favorite animal?</p>
+  <p>Información personal</p>
   <mat-form-field>
-    <mat-label>Favorite Animal</mat-label>
-
-    <input matInput />
+    <mat-label>Ingresa tu nombre</mat-label>
+    <!-- <input matInput /> -->
   </mat-form-field>
 </div>
 <div mat-dialog-actions>
-  <button mat-button (click)="onNoClick()">No Thanks</button>
+  <button mat-button (click)="onNoClick()">Cerrar</button>
   <button mat-button cdkFocusInitial>
-    Ok
+    Envia
   </button>
 </div>

@@ -5,6 +5,12 @@ footer
 .footer
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 2fr
+  & div:last-child
+    justify-content: flex-end;
   &__item
     display: flex;
     align-items: center;
+
+.number
+  width: 80px;
+  height: 50px;

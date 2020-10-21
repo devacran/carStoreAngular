@@ -1,12 +1,16 @@
-<div class="container-one">
-  <div>
-    <h1>Toyota <span>Spark</span></h1>
-    MT 1.5 L, 4 cilindros, 16 válvulas. Transmisión manual de 5 velocidades.
-    <div class="">
-      Este modelo es un prototipo. El modelo de producción puede variar.
+<div class="order-header">
+  <div class="order-header__item">
+    <div>
+      <h1>
+        {{ data.name }} <span>{{ data.model }}</span>
+      </h1>
+      MT 1.5 L, 4 cilindros, 16 válvulas. Transmisión manual de 5 velocidades.
+      <div class="leyenda">
+        Este modelo es un prototipo. El modelo de producción puede variar.
+      </div>
     </div>
   </div>
-  <div>
+  <div *ngIf="!resume" class="order-header__item">
     <div class="vehicle-img">
       <img
         src="https://www.toyota.mx/sites/default/files/YS_CVT_GrisMetalico_03_0.png"
@@ -14,9 +18,14 @@
       />
     </div>
   </div>
-  <div class="total-price">
-    Precio Total
-    <div>$235,300 M.N.</div>
-    <a mat-raised-button (click)="openDialog()">Comprar</a>
+  <div class="order-header__item">
+    <div class="total-price">
+      Precio Total
+      <div>{{ data.price | currency: "USD" }}</div>
+      <button mat-raised-button *ngIf="!resume" (click)="handleClick($event)">
+        Comprar
+      </button>
+      <a *ngIf="resume">Financiar</a>
+    </div>
   </div>
 </div>

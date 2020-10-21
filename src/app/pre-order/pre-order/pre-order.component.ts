@@ -15,7 +15,6 @@ export class PreOrderComponent implements OnInit {
   data: Vehicle[];
   ngOnInit(): void {
     this.route.paramMap.subscribe((params: Params) => {
-      console.log(params.params.name);
       this.data = this.products.getProducts(params.params.name);
     });
   }
