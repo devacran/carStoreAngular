@@ -4,9 +4,14 @@ footer
   min-height: 100px;
 .footer
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 2fr
-  & div:last-child
-    justify-content: flex-end;
+  grid-template-columns: 1fr
+  @media (min-width: 1000px)
+    grid-template-columns: 1fr 1fr 1fr 2fr
+  div
+    justify-content: center;
+    &:last-child
+      @media (min-width: 1000px)
+        justify-content: flex-end;
   &__item
     display: flex;
     align-items: center;
